@@ -28,6 +28,7 @@ package() {
   install -Dm755 "bin/swl-sudoers-add" "$pkgdir/usr/bin/swl-sudoers-add"
   install -Dm755 "bin/swl-sudoers-remove" "$pkgdir/usr/bin/swl-sudoers-remove"
   install -Dm755 "bin/swl-add-waydroid-app" "$pkgdir/usr/bin/swl-add-waydroid-app"
+  install -Dm755 "bin/swl-add-controller" "$pkgdir/usr/bin/swl-add-controller"
 
   # Install helper scripts to /usr/lib/swl
   install -Dm755 "lib/reset-maxpid" "$pkgdir/usr/lib/swl/reset-maxpid"
