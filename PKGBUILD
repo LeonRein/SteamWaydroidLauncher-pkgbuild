@@ -6,7 +6,7 @@ arch=('any')
 url="https://github.com/LeonRein/SteamWaydroidLauncher"
 license=('GPL')
 depends=('waydroid' 'cage' 'wlr-randr' 'xdpyinfo' 'kdialog')
-source=("git+https://github.com/LeonRein/SteamWaydroidLauncher.git")
+source=("git+https://github.com/LeonRein/SteamWaydroidLauncher.git#branch=dev")
 md5sums=('SKIP')
 
 pkgver() {
