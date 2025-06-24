@@ -21,8 +21,8 @@ package() {
   cd SteamWaydroidLauncher
 
   install -Dm755 "bin/swl-launch" "$pkgdir/usr/bin/swl-launch"
-  install -Dm755 "bin/swl-startup-waydroid" "$pkgdir/usr/bin/swl_startup-waydroid"
-  install -Dm755 "bin/swl-shutdown-waydroid" "$pkgdir/usr/bin/swl_shutdown-waydroid"
+  install -Dm755 "bin/swl-startup-waydroid" "$pkgdir/usr/bin/swl-startup-waydroid"
+  install -Dm755 "bin/swl-shutdown-waydroid" "$pkgdir/usr/bin/swl-shutdown-waydroid"
   install -Dm755 "bin/swl-sudoers-add" "$pkgdir/usr/bin/swl-sudoers-add"
   install -Dm755 "bin/swl-sudoers-remove" "$pkgdir/usr/bin/swl-sudoers-remove"
 
