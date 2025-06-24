@@ -1,5 +1,5 @@
 pkgname=SteamWaydroidLauncher-git
-pkgver=r359.df62cdc
+pkgver=1.0.0
 pkgrel=1
 pkgdesc="Waydroid launcher and helper scripts for Steam (latest git version)"
 arch=('any')
