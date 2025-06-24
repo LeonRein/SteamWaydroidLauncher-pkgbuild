@@ -32,7 +32,7 @@ package() {
   install -Dm755 "lib/set-maxpid" "$pkgdir/usr/lib/swl/set-maxpid"
   install -Dm755 "lib/setup-logging.sh" "$pkgdir/usr/lib/swl/setup-logging.sh"
   install -Dm755 "lib/start-waydroid-container" "$pkgdir/usr/lib/swl/start-waydroid-container"
-  install -Dm755 "lib/stop-waydroid_container" "$pkgdir/usr/lib/swl/stop-waydroid-container"
+  install -Dm755 "lib/stop-waydroid-container" "$pkgdir/usr/lib/swl/stop-waydroid-container"
   install -Dm755 "lib/wait-for-boot" "$pkgdir/usr/lib/swl/wait-for-boot"
 
   # Install documentation
