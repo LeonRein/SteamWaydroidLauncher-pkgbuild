@@ -36,6 +36,7 @@ package() {
   install -Dm755 "lib/start-waydroid-container" "$pkgdir/usr/lib/swl/start-waydroid-container"
   install -Dm755 "lib/stop-waydroid-container" "$pkgdir/usr/lib/swl/stop-waydroid-container"
   install -Dm755 "lib/wait-for-boot" "$pkgdir/usr/lib/swl/wait-for-boot"
+  install -Dm755 "lib/add-controller" "$pkgdir/usr/lib/swl/add-controller"
 
   # Install documentation
   install -Dm644 "doc/sudoers-template" "$pkgdir/usr/share/doc/swl/sudoers-template"
