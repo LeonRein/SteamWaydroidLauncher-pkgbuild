@@ -45,6 +45,7 @@ package() {
 
   # Install desktop entry
   install -Dm644 desktop/swl-add-waydroid.desktop "$pkgdir/usr/share/applications/swl-add-waydroid.desktop"
+  install -Dm644 desktop/swl-launch.desktop "$pkgdir/usr/share/applications/swl-launch.desktop"
 
   # Print post-install note
   echo "NOTE: After installation, you must run 'swl-sudoers-add' to set up sudoers permissions."
