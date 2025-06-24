@@ -1,11 +1,11 @@
 pkgname=SteamWaydroidLauncher-git
-pkgver=r1.0
+pkgver=r359.df62cdc
 pkgrel=1
 pkgdesc="Waydroid launcher and helper scripts for Steam (latest git version)"
 arch=('any')
 url="https://github.com/LeonRein/SteamWaydroidLauncher"
 license=('GPL')
-depends=('waydroid' 'cage' 'wlr-randr' 'xdpyinfo' 'kdialog')
+depends=('waydroid' 'cage' 'wlr-randr' 'xorg-xdpyinfo' 'kdialog')
 source=("git+https://github.com/LeonRein/SteamWaydroidLauncher.git#branch=dev")
 md5sums=('SKIP')
 
