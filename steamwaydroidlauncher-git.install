@@ -1,0 +1,13 @@
+post_remove() {
+  # Remove sudoers file if it exists
+  if [ -f /etc/sudoers.d/99-swl ]; then
+    rm -f /etc/sudoers.d/99-swl
+    echo "Removed /etc/sudoers.d/99-swl"
+  fi
+
+  # Remove user log files and desktop entries (for all users)
+  for home in /home/*; do
+    [ -d "$home" ] || continue
+    rm -rf "$home/.local/share/swl"
+  done
+}

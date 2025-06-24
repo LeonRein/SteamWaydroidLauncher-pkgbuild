@@ -8,6 +8,7 @@ license=('GPL')
 depends=('waydroid' 'cage' 'wlr-randr' 'xorg-xdpyinfo' 'kdialog')
 source=("git+https://github.com/LeonRein/SteamWaydroidLauncher.git#branch=dev")
 md5sums=('SKIP')
+install=steamwaydroidlauncher-git.install
 
 pkgver() {
   cd SteamWaydroidLauncher
@@ -41,4 +42,10 @@ package() {
   
   # License
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+
+  # Install desktop entry
+  install -Dm644 desktop/swl-add-waydroid.desktop "$pkgdir/usr/share/applications/swl-add-waydroid.desktop"
+
+  # Print post-install note
+  echo "NOTE: After installation, you must run 'swl-sudoers-add' to set up sudoers permissions."
 }
