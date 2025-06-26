@@ -6,7 +6,7 @@ arch=('any')
 url="https://github.com/LeonRein/SteamWaydroidLauncher"
 license=('GPL')
 depends=('bash' 'waydroid' 'cage' 'wlr-randr' 'xorg-xrandr' 'kdialog' 'polkit')
-source=("git+https://github.com/LeonRein/SteamWaydroidLauncher.git#branch=dev")
+source=("git+https://github.com/LeonRein/SteamWaydroidLauncher.git#branch=bazzite")
 md5sums=('SKIP')
 install=steamwaydroidlauncher.install
 
