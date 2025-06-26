@@ -5,10 +5,10 @@ pkgdesc="Waydroid launcher and helper scripts for Steam (latest git version)"
 arch=('any')
 url="https://github.com/LeonRein/SteamWaydroidLauncher"
 license=('GPL')
-depends=('waydroid' 'cage' 'wlr-randr' 'xorg-xdpyinfo' 'kdialog')
+depends=('bash' 'waydroid' 'cage' 'wlr-randr' 'xorg-xrandr' 'kdialog' 'polkit')
 source=("git+https://github.com/LeonRein/SteamWaydroidLauncher.git#branch=dev")
 md5sums=('SKIP')
-install=steamwaydroidlauncher-git.install
+install=steamwaydroidlauncher.install
 
 pkgver() {
   cd SteamWaydroidLauncher
@@ -22,33 +22,26 @@ package() {
   cd SteamWaydroidLauncher
 
   # Install binaries
-  install -Dm755 "bin/swl-launch" "$pkgdir/usr/bin/swl-launch"
-  install -Dm755 "bin/swl-startup-waydroid" "$pkgdir/usr/bin/swl-startup-waydroid"
-  install -Dm755 "bin/swl-shutdown-waydroid" "$pkgdir/usr/bin/swl-shutdown-waydroid"
-  install -Dm755 "bin/swl-sudoers-add" "$pkgdir/usr/bin/swl-sudoers-add"
-  install -Dm755 "bin/swl-sudoers-remove" "$pkgdir/usr/bin/swl-sudoers-remove"
   install -Dm755 "bin/swl-add-waydroid-app" "$pkgdir/usr/bin/swl-add-waydroid-app"
-  install -Dm755 "bin/swl-add-controller" "$pkgdir/usr/bin/swl-add-controller"
+  install -Dm755 "bin/waydroid-launcher" "$pkgdir/usr/bin/waydroid-launcher"
 
   # Install helper scripts to /usr/lib/swl
-  install -Dm755 "lib/reset-maxpid" "$pkgdir/usr/lib/swl/reset-maxpid"
-  install -Dm755 "lib/set-maxpid" "$pkgdir/usr/lib/swl/set-maxpid"
-  install -Dm755 "lib/setup-logging.sh" "$pkgdir/usr/lib/swl/setup-logging.sh"
-  install -Dm755 "lib/start-waydroid-container" "$pkgdir/usr/lib/swl/start-waydroid-container"
-  install -Dm755 "lib/stop-waydroid-container" "$pkgdir/usr/lib/swl/stop-waydroid-container"
-  install -Dm755 "lib/wait-for-boot" "$pkgdir/usr/lib/swl/wait-for-boot"
-  install -Dm755 "lib/add-controller" "$pkgdir/usr/lib/swl/add-controller"
+  install -Dm755 "lib/waydroid-container-restart" "$pkgdir/usr/lib/swl/waydroid-container-restart"
+  install -Dm755 "lib/waydroid-container-start" "$pkgdir/usr/lib/swl/waydroid-container-start"
+  install -Dm755 "lib/waydroid-container-stop" "$pkgdir/usr/lib/swl/waydroid-container-stop"
+  install -Dm755 "lib/waydroid-fix-controllers" "$pkgdir/usr/lib/swl/waydroid-fix-controllers"
 
-  # Install documentation
-  install -Dm644 "doc/sudoers-template" "$pkgdir/usr/share/doc/swl/sudoers-template"
+  # Install polkit policy files
+  install -Dm644 "polkit-1/actions/org.swl.waydroid.policy" "$pkgdir/usr/share/polkit-1/actions/org.swl.waydroid.policy"
+  install -Dm644 "polkit-1/rules.d/30-waydroid.rules" "$pkgdir/usr/share/polkit-1/rules.d/30-waydroid.rules"
+
+  # Install controller configuration
+  install -Dm644 "share/Vendor_28de_Product_11ff.kl" "$pkgdir/usr/share/swl/Vendor_28de_Product_11ff.kl"
   
   # License
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 
-  # Install desktop entry
+  # Install desktop entries
   install -Dm644 desktop/swl-add-waydroid.desktop "$pkgdir/usr/share/applications/swl-add-waydroid.desktop"
   install -Dm644 desktop/swl-launch.desktop "$pkgdir/usr/share/applications/swl-launch.desktop"
-
-  # Print post-install note
-  echo "NOTE: After installation, you must run 'swl-sudoers-add' to set up sudoers permissions."
 }
