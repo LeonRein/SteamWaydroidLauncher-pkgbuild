@@ -23,7 +23,7 @@ package() {
 
   # Install binaries
   install -Dm755 "bin/swl-add-waydroid-app" "$pkgdir/usr/bin/swl-add-waydroid-app"
-  install -Dm755 "bin/waydroid-launcher" "$pkgdir/usr/bin/waydroid-launcher"
+  install -Dm755 "bin/swl-launch" "$pkgdir/usr/bin/swl-launch"
 
   # Install helper scripts to /usr/lib/swl
   install -Dm755 "lib/waydroid-container-restart" "$pkgdir/usr/lib/swl/waydroid-container-restart"
