@@ -48,4 +48,5 @@ package() {
   # Install desktop entries
   install -Dm644 desktop/swl-add-waydroid.desktop "$pkgdir/usr/share/applications/swl-add-waydroid.desktop"
   install -Dm644 desktop/swl-launch.desktop "$pkgdir/usr/share/applications/swl-launch.desktop"
+  install -Dm644 desktop/swl-stop-waydroid.desktop "$pkgdir/usr/share/applications/swl-stop-waydroid.desktop"
 }
