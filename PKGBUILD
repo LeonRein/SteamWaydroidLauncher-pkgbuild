@@ -29,6 +29,7 @@ package() {
   # Install binaries
   install -Dm755 "bin/swl-add-waydroid-app" "$pkgdir/usr/bin/swl-add-waydroid-app"
   install -Dm755 "bin/swl-launch" "$pkgdir/usr/bin/swl-launch"
+  install -Dm755 "bin/swl-cleanup-apps" "$pkgdir/usr/bin/swl-cleanup-apps"
 
   # Install helper scripts to /usr/lib/swl
   install -Dm755 "lib/waydroid-container-restart" "$pkgdir/usr/lib/swl/waydroid-container-restart"
@@ -54,4 +55,5 @@ package() {
   install -Dm644 desktop/swl-add-waydroid.desktop "$pkgdir/usr/share/applications/swl-add-waydroid.desktop"
   install -Dm644 desktop/swl-launch.desktop "$pkgdir/usr/share/applications/swl-launch.desktop"
   install -Dm644 desktop/swl-stop-waydroid.desktop "$pkgdir/usr/share/applications/swl-stop-waydroid.desktop"
+  install -Dm644 desktop/swl-cleanup-apps.desktop "$pkgdir/usr/share/applications/swl-cleanup-apps.desktop"
 }
