@@ -1,9 +1,9 @@
-# Maintainer: Your Name <your.email@example.com>
+# Maintainer: LeonRein <LeonRein at protom dot me>
 _pkgname=steamwaydroidlauncher
 pkgname=${_pkgname}-git
 pkgver=1.0.0.r0.g1234567
 pkgrel=1
-pkgdesc="Waydroid launcher and helper scripts for Steam"
+pkgdesc="Waydroid launcher and helper scripts for Steam integration with caged Wayland environment"
 arch=('any')
 url="https://github.com/LeonRein/SteamWaydroidLauncher"
 license=('GPL3')
