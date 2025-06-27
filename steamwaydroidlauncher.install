@@ -1,3 +1,10 @@
+post_install() {
+  # Update desktop database to recognize the new menu category
+  if command -v update-desktop-database >/dev/null 2>&1; then
+    update-desktop-database -q /usr/share/applications 2>/dev/null || true
+  fi
+}
+
 post_remove() {
   # Remove user desktop entries created by swl-add-waydroid-app (for all users)
   for home in /home/*; do
@@ -9,5 +16,10 @@ post_remove() {
   # Remove state files in /var/lib/swl
   if [ -d /var/lib/swl ]; then
     rm -rf /var/lib/swl
+  fi
+  
+  # Update desktop database after removing menu files
+  if command -v update-desktop-database >/dev/null 2>&1; then
+    update-desktop-database -q /usr/share/applications 2>/dev/null || true
   fi
 }
