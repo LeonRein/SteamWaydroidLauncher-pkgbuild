@@ -1,30 +1,21 @@
 # Maintainer: Your Name <your.email@example.com>
 _pkgname=steamwaydroidlauncher
-pkgname=${_pkgname}-git
-pkgver=1.0.0.r0.g1234567
+pkgname=${_pkgname}
+pkgver=1.0.0
 pkgrel=1
 pkgdesc="Waydroid launcher and helper scripts for Steam"
 arch=('any')
 url="https://github.com/LeonRein/SteamWaydroidLauncher"
 license=('GPL3')
 depends=('bash' 'waydroid' 'cage' 'wlr-randr' 'xorg-xrandr' 'kdialog' 'polkit')
-makedepends=('git')
 provides=("${_pkgname}")
-conflicts=("${_pkgname}")
-source=("${_pkgname}::git+${url}.git")
-sha256sums=('SKIP')
+conflicts=("${_pkgname}-git")
+source=("${_pkgname}-${pkgver}.tar.gz::${url}/archive/v${pkgver}.tar.gz")
+sha256sums=('CHANGEME')  # Update this with the actual checksum
 install=${_pkgname}.install
 
-pkgver() {
-  cd "${_pkgname}"
-  ( set -o pipefail
-    git describe --long --tags --abbrev=7 2>/dev/null | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g' ||
-    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short=7 HEAD)"
-  )
-}
-
 package() {
-  cd "${_pkgname}"
+  cd "SteamWaydroidLauncher-${pkgver}"
 
   # Install binaries
   install -Dm755 "bin/swl-add-waydroid-app" "$pkgdir/usr/bin/swl-add-waydroid-app"
