@@ -1,13 +1,14 @@
 pkgname=SteamWaydroidLauncher-git
-pkgver=r1.0
+pkgver=1.0.0
 pkgrel=1
 pkgdesc="Waydroid launcher and helper scripts for Steam (latest git version)"
 arch=('any')
 url="https://github.com/LeonRein/SteamWaydroidLauncher"
 license=('GPL')
-depends=('waydroid' 'cage' 'wlr-randr' 'xdpyinfo' 'kdialog')
+depends=('bash' 'waydroid' 'cage' 'wlr-randr' 'xorg-xrandr' 'kdialog' 'polkit')
 source=("git+https://github.com/LeonRein/SteamWaydroidLauncher.git")
 md5sums=('SKIP')
+install=steamwaydroidlauncher.install
 
 pkgver() {
   cd SteamWaydroidLauncher
@@ -20,14 +21,32 @@ pkgver() {
 package() {
   cd SteamWaydroidLauncher
 
+  # Install binaries
+  install -Dm755 "bin/swl-add-waydroid-app" "$pkgdir/usr/bin/swl-add-waydroid-app"
   install -Dm755 "bin/swl-launch" "$pkgdir/usr/bin/swl-launch"
-  install -Dm755 "bin/swl-startup-waydroid" "$pkgdir/usr/bin/swl_startup-waydroid"
-  install -Dm755 "bin/swl-shutdown-waydroid" "$pkgdir/usr/bin/swl_shutdown-waydroid"
-  install -Dm755 "bin/swl-sudoers-add" "$pkgdir/usr/bin/swl-sudoers-add"
-  install -Dm755 "bin/swl-sudoers-remove" "$pkgdir/usr/bin/swl-sudoers-remove"
 
-  install -Dm644 "doc/sudoers-template" "$pkgdir/usr/share/doc/swl/sudoers-template"
+  # Install helper scripts to /usr/lib/swl
+  install -Dm755 "lib/waydroid-container-restart" "$pkgdir/usr/lib/swl/waydroid-container-restart"
+  install -Dm755 "lib/waydroid-container-start" "$pkgdir/usr/lib/swl/waydroid-container-start"
+  install -Dm755 "lib/waydroid-container-stop" "$pkgdir/usr/lib/swl/waydroid-container-stop"
+  install -Dm755 "lib/waydroid-fix-controllers" "$pkgdir/usr/lib/swl/waydroid-fix-controllers"
+
+  # Install polkit policy files
+  install -Dm644 "polkit-1/actions/org.swl.waydroid.policy" "$pkgdir/usr/share/polkit-1/actions/org.swl.waydroid.policy"
+  install -Dm644 "polkit-1/rules.d/30-waydroid.rules" "$pkgdir/usr/share/polkit-1/rules.d/30-waydroid.rules"
+
+  # Install controller configuration
+  install -Dm644 "share/Vendor_28de_Product_11ff.kl" "$pkgdir/usr/share/swl/Vendor_28de_Product_11ff.kl"
   
+  # Install desktop directory and menu files
+  install -Dm644 "share/swl.directory" "$pkgdir/usr/share/desktop-directories/swl.directory"
+  install -Dm644 "share/swl-applications.menu" "$pkgdir/etc/xdg/menus/applications-merged/swl-applications.menu"
+  
+  # License
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 
+  # Install desktop entries
+  install -Dm644 desktop/swl-add-waydroid.desktop "$pkgdir/usr/share/applications/swl-add-waydroid.desktop"
+  install -Dm644 desktop/swl-launch.desktop "$pkgdir/usr/share/applications/swl-launch.desktop"
+  install -Dm644 desktop/swl-stop-waydroid.desktop "$pkgdir/usr/share/applications/swl-stop-waydroid.desktop"
 }
