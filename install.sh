@@ -53,15 +53,14 @@ install_base_devel() {
 
 # Build and install package
 build_and_install() {
-    print_info "Downloading PKGBUILD..."
+    print_info "Cloning PKGBUILD repository..."
     
     # Create temporary directory
     TEMP_DIR=$(mktemp -d)
     cd "$TEMP_DIR"
     
-    # Download the PKGBUILD and related files
-    curl -fsSL "https://raw.githubusercontent.com/LeonRein/SteamWaydroidLauncher-pkgbuild/main/PKGBUILD" -o PKGBUILD
-    curl -fsSL "https://raw.githubusercontent.com/LeonRein/SteamWaydroidLauncher-pkgbuild/main/steamwaydroidlauncher.install" -o steamwaydroidlauncher.install
+    # Clone the PKGBUILD repository
+    git clone --depth 1 "https://github.com/LeonRein/SteamWaydroidLauncher-pkgbuild.git" .
     
     print_info "Building package..."
     
