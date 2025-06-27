@@ -1,6 +1,6 @@
 #!/bin/bash
 # SteamWaydroidLauncher - Arch Linux One-Line Installer
-# Usage: curl -fsSL https://raw.githubusercontent.com/LeonRein/SteamWaydroidLauncher/main/SteamWaydroidLauncher-pkgbuild/install.sh | bash
+# Usage: curl -fsSL https://raw.githubusercontent.com/LeonRein/SteamWaydroidLauncher-pkgbuild/main/install.sh | bash
 
 set -e
 
