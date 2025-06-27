@@ -38,6 +38,9 @@ package() {
   # Install controller configuration
   install -Dm644 "share/Vendor_28de_Product_11ff.kl" "$pkgdir/usr/share/swl/Vendor_28de_Product_11ff.kl"
   
+  # Install desktop category directory
+  install -Dm644 "share/SteamWaydroidLauncher.directory" "$pkgdir/usr/share/desktop-directories/SteamWaydroidLauncher.directory"
+  
   # License
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 

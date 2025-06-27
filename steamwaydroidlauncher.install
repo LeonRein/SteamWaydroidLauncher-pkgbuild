@@ -1,8 +1,9 @@
 post_remove() {
-  # Remove user log files and desktop entries (for all users)
+  # Remove user desktop entries created by swl-add-waydroid-app (for all users)
   for home in /home/*; do
     [ -d "$home" ] || continue
-    rm -rf "$home/.local/share/swl"
+    # Remove SWL-created desktop files
+    rm -f "$home/.local/share/applications/swl."*.desktop 2>/dev/null || true
   done
 
   # Remove state files in /var/lib/swl
