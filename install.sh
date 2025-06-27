@@ -60,8 +60,8 @@ build_and_install() {
     cd "$TEMP_DIR"
     
     # Download the PKGBUILD and related files
-    curl -fsSL "https://raw.githubusercontent.com/LeonRein/SteamWaydroidLauncher/main/SteamWaydroidLauncher-pkgbuild/PKGBUILD" -o PKGBUILD
-    curl -fsSL "https://raw.githubusercontent.com/LeonRein/SteamWaydroidLauncher/main/SteamWaydroidLauncher-pkgbuild/steamwaydroidlauncher.install" -o steamwaydroidlauncher.install
+    curl -fsSL "https://raw.githubusercontent.com/LeonRein/SteamWaydroidLauncher-pkgbuild/main/PKGBUILD" -o PKGBUILD
+    curl -fsSL "https://raw.githubusercontent.com/LeonRein/SteamWaydroidLauncher-pkgbuild/main/steamwaydroidlauncher.install" -o steamwaydroidlauncher.install
     
     print_info "Building package..."
     

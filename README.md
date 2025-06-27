@@ -13,7 +13,7 @@ Waydroid launcher and helper scripts for Steam integration, originally from the 
 
 ### One-Line Installer (Arch Linux)
 ```bash
-curl -fsSL https://raw.githubusercontent.com/LeonRein/SteamWaydroidLauncher/main/SteamWaydroidLauncher-pkgbuild/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/LeonRein/SteamWaydroidLauncher-pkgbuild/main/install.sh | bash
 ```
 
 ### Manual AUR Installation
